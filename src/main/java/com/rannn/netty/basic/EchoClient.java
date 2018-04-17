@@ -1,4 +1,4 @@
-package com.lemon.netty.basic;
+package com.rannn.netty.basic;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

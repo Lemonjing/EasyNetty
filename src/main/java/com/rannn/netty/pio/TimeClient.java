@@ -1,10 +1,11 @@
-package com.lemon.netty.bio;
+package com.rannn.netty.pio;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.nio.channels.FileChannel;
 
 /**
  * Created by hztaoran on 2016/7/20.

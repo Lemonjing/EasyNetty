@@ -1,6 +1,4 @@
-package com.lemon.netty.pio;
-
-import com.lemon.netty.bio.TimeServerHandler;
+package com.rannn.netty.bio;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -8,7 +6,7 @@ import java.net.Socket;
 
 /**
  * Created by hztaoran on 2016/7/20.
- * M:N的伪异步IO的时间服务器
+ * 1:1的基于BIO模型的时间服务器
  */
 public class TimeServer {
     public static void main(String[] args) throws IOException {
@@ -25,10 +23,9 @@ public class TimeServer {
             server = new ServerSocket(port);
             System.out.println("The time server is start in port : " + port);
             Socket socket = null;
-            TimeServerHandlerExecutePool executePool = new TimeServerHandlerExecutePool(50, 10000);
             while (true) {
                 socket = server.accept();
-                executePool.execute(new TimeServerHandler(socket));
+                new Thread(new TimeServerHandler(socket)).start();
             }
         } finally {
             if (null != server) {
